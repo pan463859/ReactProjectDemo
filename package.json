@@ -1,0 +1,9 @@
+{
+  "name": "learningproject",
+  "version": "1.0.0",
+  "description": "for learning React",
+  "main": "index.js",
+  "repository": "git@github.com:pan463859/learningproject.git",
+  "author": "Grizz <panan521@qq.com>",
+  "license": "MIT"
+}
