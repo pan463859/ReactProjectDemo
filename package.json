@@ -4,7 +4,8 @@
   "description": "本项目用于从0搭建一个可用React框架\r 用于个人学习\r 参考教程\r https://juejin.im/post/6844903811794862087#heading-9",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --config ./build/webpack.dev.config.js",
+    "build": "webpack --config ./build/webpack.dev.config.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,16 @@
   "bugs": {
     "url": "https://github.com/pan463859/ReactProjectDemo/issues"
   },
-  "homepage": "https://github.com/pan463859/ReactProjectDemo#readme"
+  "homepage": "https://github.com/pan463859/ReactProjectDemo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
+  }
 }
