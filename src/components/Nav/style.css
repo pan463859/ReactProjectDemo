@@ -1,0 +1,8 @@
+.navigator{
+    display: inline-block;
+    list-style-type: none;
+}
+.navigator>li{
+    display: inline-block;
+    margin-left: 50px;
+}
