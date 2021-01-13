@@ -1,7 +1,9 @@
-import {createStore} from 'redux';
-import counter  from 'reducers/counter';
-import {combineReducers} from "redux";
+import {createStore,applyMiddleware,combineReducers} from 'redux';
+import thunkMiddleware from 'redux-thunk';
 
-let store = createStore(combineReducers({counter}));
+import counter  from 'reducers/counter';
+import userInfo  from 'reducers/userInfo';
+
+let store = createStore(combineReducers({counter, userInfo}), applyMiddleware(thunkMiddleware));
 
 export default store;
