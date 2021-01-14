@@ -18,22 +18,6 @@ module.exports = {
         chunkFilename: '[name].[chunkhash].js',
         publicPath : '/dist/',
     },
-    // devServer: {
-    //     proxy: { // 配置服务代理
-    //         '/api': {
-    //             target: 'http://localhost:8000',
-    //             pathRewrite: { '^/api': '' },  //可转换
-    //             changeOrigin: true
-    //         }
-    //     },
-    //     contentBase: path.join(__dirname, '../dist'),
-    //     compress: true,  // gzip压缩
-    //     host: '0.0.0.0', // 允许ip访问
-    //     hot: true, // 热更新
-    //     historyApiFallback: true, // 解决启动后刷新404
-    //     port: 8000 // 端口
-    // },
-    // devtool: 'inline-source-map',
     devtool: 'none',
     module: {
         rules: [{

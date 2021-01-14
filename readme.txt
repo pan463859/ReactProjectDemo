@@ -14,3 +14,6 @@ webpack 4.28.2
 @babel/preset-env 用于解析 ES6
 @babel/preset-react 用于解析 JSX
 babel-loader 加载器
+该项目主要是为了搭载一些好玩有趣的React插件
+并且在上面去体验React新版本的一些功能和api
+随缘更新~
