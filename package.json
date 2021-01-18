@@ -24,7 +24,6 @@
   "bugs": {
     "url": "https://github.com/pan463859/ReactProjectDemo/issues"
   },
-  "homepage": "https://github.com/pan463859/ReactProjectDemo",
   "devDependencies": {
     "@babel/core": "^7.11.5",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
