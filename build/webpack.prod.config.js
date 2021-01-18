@@ -1,13 +1,22 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
     entry: {
+        // app: [
+        //     "@babel/polyfill",
+        //     path.join(__dirname, '../src/index.js')
+        // ],
         app: [
             "@babel/polyfill",
             path.join(__dirname, '../src/index.js')
+        ],
+        dnd: [
+            "@babel/polyfill",
+            path.join(__dirname, '../src/dndindex.js')
         ],
         vendor: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
     },
@@ -16,7 +25,7 @@ module.exports = {
         path: path.join(__dirname, '../dist'),
         filename: '[name].[hash].js',
         chunkFilename: '[name].[chunkhash].js',
-        publicPath : '/ReactProjectDemo/',
+        // publicPath : './',
     },
     devtool: 'none',
     module: {
@@ -58,7 +67,15 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'dnd.html',
+            chunks: ['dnd'],
+            title: '拖一只马',
+            template: path.join(__dirname, '../public/dndindex.html')
+        }),
+        new HtmlWebpackPlugin({
             filename: 'index.html',
+            chunks: ['app'],
+            title: '主页',
             template: path.join(__dirname, '../public/index.html')
         }),
         new MiniCssExtractPlugin({ // 压缩css
@@ -67,7 +84,9 @@ module.exports = {
         }),
         new OptimizeCssAssetsPlugin(),
 
-
+        new webpack.DefinePlugin({
+            'process.env.uat': true
+        }),
         new CleanWebpackPlugin(), // 每次打包前清空
     ]
 

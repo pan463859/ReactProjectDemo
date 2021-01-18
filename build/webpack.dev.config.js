@@ -1,10 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: {
         app: [
             path.join(__dirname, '../src/index.js')
+        ],
+        dnd: [
+            path.join(__dirname, '../src/dndindex.js')
         ],
         vendor: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
     },
@@ -33,24 +37,24 @@ module.exports = {
     module: {
         rules:
             [
-            {
-                test: /\.js$/,
-                use: ['babel-loader?cacheDirectory=true'],
-                include: path.join(__dirname, '../src')
-            },
-            {
-                test: /\.css$/,
-                use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader?modules', "postcss-loader"]
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use: [{
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192
-                    }
-                }]
-            }
+                {
+                    test: /\.js$/,
+                    use: ['babel-loader?cacheDirectory=true'],
+                    include: path.join(__dirname, '../src')
+                },
+                {
+                    test: /\.css$/,
+                    use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader?modules', "postcss-loader"]
+                },
+                {
+                    test: /\.(png|jpg|gif)$/,
+                    use: [{
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }]
+                }
             ],
 
     },
@@ -63,17 +67,27 @@ module.exports = {
             reducers: path.join(__dirname, '../src/redux/reducers'),
             images: path.join(__dirname, '../src/images')
         },
-        extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'dnd.html',
+            chunks: ['dnd'],
+            title: '拖一只马',
+            template: path.join(__dirname, '../public/dndindex.html')
+        }),
+        new HtmlWebpackPlugin({
             filename: 'index.html',
+            chunks: ['app'],
+            title: '主页',
             template: path.join(__dirname, '../public/index.html')
         }),
         new MiniCssExtractPlugin({ // 压缩css
             filename: "[name].[contenthash].css",
             chunkFilename: "[id].[contenthash].css"
-        })
+        }),
+        new webpack.DefinePlugin({
+            'process.env.uat': false
+        }),
     ]
 
 };

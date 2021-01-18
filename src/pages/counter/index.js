@@ -19,7 +19,6 @@ class Counter extends PureComponent {
 }
 export default connect(({counter}) => counter, dispatch => ({
     increment: () => {
-        debugger
         dispatch(increment())
     },
     decrement: () => {
