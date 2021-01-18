@@ -31,25 +31,27 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     module: {
-        rules: [{
-            test: /\.js$/,
-            use: ['babel-loader?cacheDirectory=true'],
-            include: path.join(__dirname, '../src')
-        },
-        {
-            test: /\.css$/,
-            use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader?modules', "postcss-loader"]
-        },
-        {
-            test: /\.(png|jpg|gif)$/,
-            use: [{
-                loader: 'url-loader',
-                options: {
-                    limit: 8192
-                }
-            }]
-        }
-        ],
+        rules:
+            [
+            {
+                test: /\.js$/,
+                use: ['babel-loader?cacheDirectory=true'],
+                include: path.join(__dirname, '../src')
+            },
+            {
+                test: /\.css$/,
+                use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader?modules', "postcss-loader"]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192
+                    }
+                }]
+            }
+            ],
 
     },
     resolve: {
@@ -61,6 +63,7 @@ module.exports = {
             reducers: path.join(__dirname, '../src/redux/reducers'),
             images: path.join(__dirname, '../src/images')
         },
+        extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
         new HtmlWebpackPlugin({
