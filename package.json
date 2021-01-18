@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "本项目用于从0搭建一个可用React框架\r 用于个人学习\r 参考教程\r https://juejin.im/post/6844903811794862087#heading-9",
   "main": "index.js",
+
   "scripts": {
     "start": "webpack-dev-server --config ./build/webpack.dev.config.js",
     "build": "webpack --config ./build/webpack.prod.config.js",
     "cosmos": "cosmos",
-    "cosmos:export": "cosmos-export"
+    "cosmos:export": "cosmos-export",
+    "deploy": "gh-pages -d dist"
   },
   "browserslist": [
     "> 1%",
@@ -22,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/pan463859/ReactProjectDemo/issues"
   },
-  "homepage": "https://github.com/pan463859/ReactProjectDemo#readme",
+  "homepage": "https://github.com/pan463859/ReactProjectDemo",
   "devDependencies": {
     "@babel/core": "^7.11.5",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
