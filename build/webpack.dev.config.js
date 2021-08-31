@@ -43,6 +43,15 @@ module.exports = {
                     include: path.join(__dirname, '../src')
                 },
                 {
+                    test: /\.less$/i,
+                    loader: [
+                        // compiles Less to CSS
+                        "style-loader",
+                        "css-loader",
+                        "less-loader",
+                    ],
+                },
+                {
                     test: /\.css$/,
                     use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader?modules', "postcss-loader"]
                 },

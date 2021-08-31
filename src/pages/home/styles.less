@@ -1,0 +1,61 @@
+.questionmodal {
+    &_content {
+        position: relative;
+        padding: 10px 54px;
+
+        .handlebutton {
+            width: 80px;
+            height: 37px;
+            background: #EE8334;
+            box-shadow: 0px 0px 20px rgba(238, 131, 52, 0.27);
+            opacity: 1;
+            border-radius: 5px;
+            line-height: 37px;
+            text-align: center;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            margin-top: 30px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        &_singlerow {
+            display: flex;
+            margin-top: 20px;
+            align-items: center;
+
+            >span {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 19px;
+                color: #333333;
+                width: 112px;
+                text-align: right;
+            }
+
+            >input {
+                width: 900px;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    :global {
+        .ant-modal-body {
+            padding: 0;
+        }
+
+        .ant-modal-header {
+            text-align: center;
+            height: 60px;
+            background: #F5F5F5;
+            opacity: 1;
+            border-radius: 20px 20px 0px 0px;
+
+            .ant-input {
+                width: 200px;
+            }
+        }
+    }
+}
